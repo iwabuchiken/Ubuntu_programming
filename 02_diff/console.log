@@ -70,10 +70,14 @@ iwabuchiken@ubuntu:02_diff$ diff common.c.org common.c -u
  #endif
 
 ----------------------------------------------
+iwabuchiken@ubuntu:02_diff$ rename 's/common(.+)/a$1/' *.*
+
+----------------------------------------------
 iwabuchiken@ubuntu:02_diff$ diff common.c.org common.c -u > common.patch
 
 ----------------------------------------------
-
+iwabuchiken@ubuntu:02_diff$ patch -b -z .bak < a.diff
 
 ----------------------------------------------
+
 ----------------------------------------------

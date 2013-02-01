@@ -70,14 +70,47 @@ iwabuchiken@ubuntu:02_diff$ diff common.c.org common.c -u
  #endif
 
 ----------------------------------------------
-iwabuchiken@ubuntu:02_diff$ rename 's/common(.+)/a$1/' *.*
+iwabuchiken@ubuntu:02_diff$ diff common.c.org common.c -u > common.patch
 
 ----------------------------------------------
-iwabuchiken@ubuntu:02_diff$ diff common.c.org common.c -u > common.patch
+iwabuchiken@ubuntu:02_diff$ rename 's/common(.+)/a$1/' *.*
 
 ----------------------------------------------
 iwabuchiken@ubuntu:02_diff$ patch -b -z .bak < a.diff
 
 ----------------------------------------------
+patch -b -z .bak < a.dif
+patching file a.c
+Hunk #1 FAILED at 1.
+1 out of 1 hunk FAILED -- saving rejects to file a.c.rej
+iwabuchiken@ubuntu:02_diff$ cat a.c.rej
+--- a.c	2013-02-01 09:44:42.000000000 +0900
++++ a.c.org	2013-02-01 09:27:04.000000000 +0900
+@@ -1,7 +1,7 @@
+ #include "common.h"
+ #if defined(D2U_UNICODE)
+ #if defined(__WIN32__) || defined(__CYGWIN__)
+-//#include <windows.h>
++#include <windows.h>
+ #endif
+ #endif
+ 
+----------------------------------------------
+iwabuchiken@ubuntu:02_diff$ cat a.c~
+#include "common.h"
+#if defined(D2U_UNICODE)
+#if defined(__WIN32__) || defined(__CYGWIN__)
+//#include <windows.h>
+#endif
+#endif
+
+iwabuchiken@ubuntu:02_diff$ cat a.c
+#include "common.h"
+#if defined(D2U_UNICODE)
+#if defined(__WIN32__) || defined(__CYGWIN__)
+//#include <windows.h>
+//#endif
+#endif
+
 
 ----------------------------------------------

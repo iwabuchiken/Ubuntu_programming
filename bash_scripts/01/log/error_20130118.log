@@ -1,0 +1,2 @@
+iwabuchiken@ubuntu:~/ws/ws_eclipse/Ubuntu_programming/bash_scripts/01$ ./01_read_file.bsh 
+./01_read_file.bsh: 行 7: $1: 曖昧なリダイレクトです

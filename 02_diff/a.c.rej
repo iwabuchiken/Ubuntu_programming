@@ -1,0 +1,11 @@
+--- common.c.org	2013-02-01 08:34:39.000000000 +0900
++++ common.c	2013-02-01 08:34:43.000000000 +0900
+@@ -1,7 +1,7 @@
+ #include "common.h"
+ #if defined(D2U_UNICODE)
+ #if defined(__WIN32__) || defined(__CYGWIN__)
+-//#include <windows.h>
++#include <windows.h>
+ #endif
+ #endif
+ 

@@ -1,0 +1,79 @@
+[20130201_083053]
+----------------------------------------------
+iwabuchiken@ubuntu:02_diff$ cat common.c
+#include "common.h"
+#if defined(D2U_UNICODE)
+#if defined(__WIN32__) || defined(__CYGWIN__)
+#include <windows.h>
+#endif
+#endif
+----------------------------------------------
+iwabuchiken@ubuntu:02_diff$ cat common.c.org 
+#include "common.h"
+#if defined(D2U_UNICODE)
+#if defined(__WIN32__) || defined(__CYGWIN__)
+//#include <windows.h>
+#endif
+#endif
+----------------------------------------------
+iwabuchiken@ubuntu:02_diff$ diff common.c common.c.org 
+4c4
+< #include <windows.h>
+---
+> //#include <windows.h>
+----------------------------------------------
+iwabuchiken@ubuntu:02_diff$ diff common.c common.c.org -c
+*** common.c	2013-02-01 08:34:43.000000000 +0900
+--- common.c.org	2013-02-01 08:34:39.000000000 +0900
+***************
+*** 1,7 ****
+  #include "common.h"
+  #if defined(D2U_UNICODE)
+  #if defined(__WIN32__) || defined(__CYGWIN__)
+! #include <windows.h>
+  #endif
+  #endif
+  
+--- 1,7 ----
+  #include "common.h"
+  #if defined(D2U_UNICODE)
+  #if defined(__WIN32__) || defined(__CYGWIN__)
+! //#include <windows.h>
+  #endif
+  #endif
+  
+----------------------------------------------
+iwabuchiken@ubuntu:02_diff$ diff common.c common.c.org -u
+--- common.c	2013-02-01 08:34:43.000000000 +0900
++++ common.c.org	2013-02-01 08:34:39.000000000 +0900
+@@ -1,7 +1,7 @@
+ #include "common.h"
+ #if defined(D2U_UNICODE)
+ #if defined(__WIN32__) || defined(__CYGWIN__)
+-#include <windows.h>
++//#include <windows.h>
+ #endif
+ #endif
+ 
+
+----------------------------------------------
+iwabuchiken@ubuntu:02_diff$ diff common.c.org common.c -u
+--- common.c.org	2013-02-01 08:34:39.000000000 +0900
++++ common.c	2013-02-01 08:34:43.000000000 +0900
+@@ -1,7 +1,7 @@
+ #include "common.h"
+ #if defined(D2U_UNICODE)
+ #if defined(__WIN32__) || defined(__CYGWIN__)
+-//#include <windows.h>
++#include <windows.h>
+ #endif
+ #endif
+
+----------------------------------------------
+iwabuchiken@ubuntu:02_diff$ diff common.c.org common.c -u > common.patch
+
+----------------------------------------------
+
+
+----------------------------------------------
+----------------------------------------------

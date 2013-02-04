@@ -1,5 +1,9 @@
 #!/bin/bash
-
+##########################################
+#
+#	Resource: http://opennomad.com/content/parallelism-or-multiple-threads-bash
+#
+##########################################
 OUTPUT="/tmp/.test"
 #OUTPUT="./.test"
 mkfifo $OUTPUT &> /dev/null 
